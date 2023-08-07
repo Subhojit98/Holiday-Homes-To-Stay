@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo&family=Chakra+Petch&family=IBM+Plex+Mono&family=Josefin+Sans&family=Lato&family=Manrope&family=Nunito&family=Poppins&family=Quicksand&family=Raleway&family=Roboto&family=Roboto+Mono&family=Rubik&family=Space+Mono&family=Tilt+Neon&family=Ubuntu&family=Varela+Round&family=Zilla+Slab&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
