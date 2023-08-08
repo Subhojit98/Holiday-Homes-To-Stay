@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     extend: {
@@ -38,7 +39,20 @@ export default {
         defaultTextColor2: '#7a7977',
       }
     },
+    screens: {
+
+
+
+      'tablet': '768px',
+
+      'bigTablet': '992px',
+
+      'desktop': '1281px',
+    }
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), ('flowbite/plugin')],
+  daisyui: {
+    themes: [],
+  },
 }
 

@@ -15,4 +15,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  env: {
+    node: true,
+    browser: true,
+    es2021: true,
+  },
 }

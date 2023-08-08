@@ -3,3 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Navbar scroll-down style.. -> */
+.scroll-down nav {
+    transform: translate3d(0, -100%, 0);
+}
