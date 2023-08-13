@@ -8,7 +8,7 @@ const BenefitTypes = () => {
                     benfitData?.map(({ id, image, imagePosition, title, head, body, btnText, imagePostionOnFlex }) => {
                         return <div key={id} className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10 ${imagePostionOnFlex} desktop:pt-20 gap-5`}>
                             <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh] bigTablet:w-full desktop:h-full tablet:place-self-center ${imagePosition} `}>
-                                <img src={image} alt="" className='w-full object-cover h-full' />
+                                <img src={image} alt="poperty pictures" className='w-full object-cover h-full' />
                             </div>
 
                             <div className="flex justify-center w-full h-full bigTablet:w-[88%]">

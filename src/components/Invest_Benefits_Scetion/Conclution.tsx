@@ -3,7 +3,7 @@ const Conclution = () => {
     return (
         <>
             <div className="h-screen desktop:h-[97vh] relative tablet:flex tablet:justify-center mt-16 tablet:mt-20 desktop:mt-40">
-                <img src={bgImage} alt="" className='object-cover w-full h-full absolute' />
+                <img src={bgImage} alt="image of the mountains with swimming pool" className='object-cover w-full h-full absolute' />
 
                 <div className="w-[90%] tablet:w-[95%]  bigTablet:h-[90%] flex justify-center items-center tablet:items-end flex-col absolute">
                     <div className="w-[78%] tablet:w-[63%] bigTablet:w-1/2 desktop:w-[60%] mt-12 desktop:mt-28 text-white bigTablet:pl-10">
@@ -14,15 +14,12 @@ const Conclution = () => {
 
                             <div className="text-center tablet:text-start">
                                 <button>
-                                    <a href="#" className="relative inline-flex items-center px-16 tablet:px-16 tablet:py-4 py-4 bigTablet:py-4 bigTablet:px-10  overflow-hidden text-lg font-medium text-black border-[1.1px] border-white bg-transparent hover:text-white group hover:bg-transparent">
-                                        <span className="absolute left-0 block w-full h-0 transition-all bg-transparent  opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                                        <span className="absolute tablet:left-0 flex items-center justify-start w-10 h-10 duration-300 transform -translate-x-5 group-hover:translate-x-5 ease">
-                                            {/* 
-                                        <svg className="w-5 h-5 " fill="#fff" stroke="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg> */}
-
-
+                                    <a href="#" className="relative inline-flex items-center px-[3.45rem] tablet:px-3 py-4 bigTablet:py-7 bigTablet:px-10 overflow-hidden text-lg font-medium text-white border-[1.1px] border-white bg-transparent hover:text-black group hover:bg-transparent">
+                                        <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                        <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:-translate-x-0 ease">
+                                            <svg className="w-5 h-5 tablet:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                         </span>
-                                        <span className="relative font-chakra text-base text-white">About Amēa</span>
+                                        <span className="relative font-chakra text-base">Business case</span>
                                     </a>
                                 </button>
                             </div>

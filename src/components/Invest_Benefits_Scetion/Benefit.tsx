@@ -1,5 +1,6 @@
 import BenefitTypes from "./BenefitTypes"
 import Conclution from "./Conclution"
+import JoinCommunity from "./JoinCommunity"
 
 
 const Benefit = () => {
@@ -7,6 +8,7 @@ const Benefit = () => {
         <>
             <BenefitTypes />
             <Conclution />
+            <JoinCommunity />
         </>
     )
 }

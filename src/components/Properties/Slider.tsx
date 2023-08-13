@@ -10,7 +10,7 @@ const Slider: React.FC = () => {
                     sliderImgData.map((image) => {
                         return <div key={image.id}>
                             <img
-                                alt="..."
+                                alt="image of the property and villa"
                                 src={image.img}
                                 className='object-cover h-[80vh] tablet:h-full w-full'
                             />
