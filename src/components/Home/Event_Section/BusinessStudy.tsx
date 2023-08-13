@@ -1,4 +1,4 @@
-import studyImg from '../../assets/Home_Page_images/Home_page_image_3.jpg'
+import studyImg from '../../../assets/Home_Page_images/Home_page_image_3.jpg'
 const BusinessStudy = () => {
     return (
         <>

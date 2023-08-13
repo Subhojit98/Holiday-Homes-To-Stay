@@ -1,4 +1,4 @@
-import NaturalLogo from "../../assets/logo/amea-logo.svg";
+import NaturalLogo from "../../../assets/logo/amea-logo.svg";
 
 const Navbar = () => {
 

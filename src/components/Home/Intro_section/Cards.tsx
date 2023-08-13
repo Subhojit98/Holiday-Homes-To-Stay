@@ -1,4 +1,4 @@
-import { cardsProp } from '../../interface/CradsData'
+import { cardsProp } from '../../../interface/CradsData'
 
 
 const Cards = ({ cards }: cardsProp) => {

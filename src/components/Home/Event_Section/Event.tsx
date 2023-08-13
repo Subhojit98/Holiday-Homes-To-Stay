@@ -1,4 +1,4 @@
-import palletVillaImg from '../../assets/Home_Page_images/pallet_villa.jpg'
+import palletVillaImg from '../../../assets/Home_Page_images/pallet_villa.jpg'
 import BusinessStudy from './BusinessStudy'
 const Event = () => {
     return (

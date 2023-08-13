@@ -1,4 +1,4 @@
-import bgImage from '../../assets/Home_Page_images/Scene_08_Dusk_CL-copy.jpg'
+import bgImage from '../../../assets/Home_Page_images/Scene_08_Dusk_CL-copy.jpg'
 const Conclution = () => {
     return (
         <>

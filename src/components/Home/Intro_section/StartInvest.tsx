@@ -1,5 +1,5 @@
 
-import { image } from "../../interface/CradsData"
+import { image } from "../../../interface/CradsData"
 const StartInvest = ({ intro_img }: image) => {
     return (
         <>

@@ -1,5 +1,5 @@
-import heroVideo from '../../assets/Home_Page_images/home_Page_video.mp4'
-import heroPoster from '../../assets/Home_Page_images/poster_video.jpg'
+import heroVideo from '../../../assets/Home_Page_images/home_Page_video.mp4'
+import heroPoster from '../../../assets/Home_Page_images/poster_video.jpg'
 const Hero: React.FC = () => {
     return (
         <>

@@ -1,6 +1,6 @@
 'use client';
 import { Carousel } from 'flowbite-react';
-import { sliderImgData } from '../../data/sliderImage';
+import { sliderImgData } from '../../../data/sliderImage';
 
 const Slider: React.FC = () => {
     return (

@@ -1,11 +1,11 @@
 
-import CommunityImg from '../../assets/Home_Page_images/Home_page_image_7.jpg'
+import CommunityImg from '../../../assets/Home_Page_images/Home_page_image_7.jpg'
 const JoinCommunity = () => {
     return (
         <>
             <div className="w-full h-full flex justify-center flex-col items-center pt-20 tablet:flex-row bg-specialBg tablet:gap-4">
 
-                <div className="flex flex-col tablet:flex h-[90%] w-[90%] bigTablet:w-[82%] desktop:w-[75%] items-center desktop:mt-28 desktop:mb-20">
+                <div className="flex flex-col tablet:flex-row h-[90%] w-[90%] bigTablet:w-[82%] desktop:w-[75%] items-center desktop:mt-28 desktop:mb-20">
 
                     <div className="h-[90%] w-[85%] flex flex-col items-center justify-center bigTablet:w-[75%]">
                         <img src={CommunityImg} className="h-[90%] object-cover tablet:h-full w-full bigTablet:w-[88%] desktop:w-[85%]" alt="image of a girl with sunglass" />

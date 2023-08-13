@@ -1,5 +1,5 @@
-import InteroImg_1 from '../../assets/Home_Page_images/Home_page_image_1.jpg'
-import { cardText } from '../../data/incomeType'
+import InteroImg_1 from '../../../assets/Home_Page_images/Home_page_image_1.jpg'
+import { cardText } from '../../../data/incomeType'
 import Cards from './Cards'
 import StartInvest from './StartInvest'
 const Intro = () => {

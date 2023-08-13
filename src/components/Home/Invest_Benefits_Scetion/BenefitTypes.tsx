@@ -1,5 +1,5 @@
 
-import benfitData from '../../data/investBenefit'
+import benfitData from '../../../data/investBenefit'
 const BenefitTypes = () => {
     return (
         <>
