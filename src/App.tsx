@@ -1,15 +1,21 @@
 
 import './App.css'
+import Navbar from './components/Navbar/Navbar';
+import CreateAccount from './pages/CreateAccount';
 import Home from './pages/Home'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
 
 
   return (
     <>
-      <div className="w-full h-auto bg-WholePage">
-        <Home />
-      </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='became-investor' element={<CreateAccount />} />
+        </Routes>
+      </Router>
     </>
   )
 }

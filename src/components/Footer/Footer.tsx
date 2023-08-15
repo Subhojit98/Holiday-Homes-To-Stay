@@ -1,6 +1,5 @@
 import foorterImg from '../../assets/Home_Page_images/Footer.jpg'
 import FooterUi from './FooterUi'
-// import NaturalLogo from "../../assets/logo/amea-logo.svg";
 
 const Footer = () => {
     return (

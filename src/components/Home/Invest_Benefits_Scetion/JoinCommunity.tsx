@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import CommunityImg from '../../../assets/Home_Page_images/Home_page_image_7.jpg'
 const JoinCommunity = () => {
     return (
@@ -24,13 +24,13 @@ const JoinCommunity = () => {
 
                                 <div className="text-center tablet:text-start">
                                     <button>
-                                        <a href="#" className="relative inline-flex items-center px-14 py-3 tablet:px-10 tablet:py-4 bigTablet:py-5 bigTablet:px-16 overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-white group hover:bg-white">
+                                        <Link to={"/became-investor"} className="relative inline-flex items-center px-14 py-3 tablet:px-10 tablet:py-4 bigTablet:py-5 bigTablet:px-16 overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-white group hover:bg-white">
                                             <span className="absolute left-0 block w-full h-0 transition-all bg-black opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:-translate-x-0 ease">
                                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                             </span>
                                             <span className="relative font-chakra text-base">Amēa community</span>
-                                        </a>
+                                        </Link>
                                     </button>
                                 </div>
                             </div>

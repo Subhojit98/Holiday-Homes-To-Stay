@@ -10,7 +10,7 @@ const FooterUi = () => {
                     <div className="flex flex-row-reverse">
                         <div>
                             <div className="text-teal-600 dark:text-teal-300">
-                                <img src={LogoSvg} alt="" className='h-4 bigTablet:h-6' />
+                                <img src={LogoSvg} alt="" className='h-4 bigTablet:h-6 hover:cursor-pointer' />
 
                             </div>
 

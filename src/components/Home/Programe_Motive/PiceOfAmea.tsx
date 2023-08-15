@@ -1,5 +1,5 @@
-// import {AmeaData}  from '../../../interface/AmeaData'
 import { MotiveData } from '../../../data/ProgramMotiveData'
+import { Link } from 'react-router-dom'
 const PiceOfAmea = () => {
     return (
         <>
@@ -21,22 +21,22 @@ const PiceOfAmea = () => {
 
                                 <div className="flex flex-col justify-center bigTablet:justify-start gap-2 tablet:gap-3 tablet:flex-row bigTablet:flex-row">
                                     <button>
-                                        <a href="#" className="relative inline-flex items-center px-[3.32rem] py-3 tablet:px-3 tablet:py-4 bigTablet:px-10 desktop:px-10 desktop:py-5  overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">
+                                        <Link to={"/became-investor"} className="relative inline-flex items-center px-[3.32rem] py-3 tablet:px-3 tablet:py-4 bigTablet:px-10 desktop:px-10 desktop:py-5  overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">
                                             <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:-translate-x-0 ease">
                                                 <svg className="w-5 h-5 tablet:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                             </span>
                                             <span className="relative font-chakra text-base">{btn_1_Text}</span>
-                                        </a>
+                                        </Link>
                                     </button>
                                     <button>
-                                        <a href="#" className="relative inline-flex items-center px-14 py-3 tablet:px-3 tablet:py-4 bigTablet:px-12 desktop:px-8 desktop:py-5  overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
+                                        <Link to={"/became-investor"} className="relative inline-flex items-center px-14 py-3 tablet:px-3 tablet:py-4 bigTablet:px-12 desktop:px-8 desktop:py-5  overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
                                             <span className="absolute left-0 block w-full h-0 transition-all bg-white  opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
                                             <span className="absolute  tablet:right-0 flex items-center justify-start w-10 h-10 duration-300 transform -translate-x-20  group-hover:-translate-x-7  ease">
                                                 <svg className="w-5 h-5 tablet:hidden" fill="#000" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                             </span>
                                             <span className="relative font-chakra text-base">{btn_2_Text}</span>
-                                        </a>
+                                        </Link>
                                     </button>
                                 </div>
                             </div>

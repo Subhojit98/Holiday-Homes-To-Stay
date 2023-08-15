@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #f0ece9;
+}
+
 /* Navbar scroll-down style.. -> */
 .scroll-down nav {
     transform: translate3d(0, -100%, 0);
