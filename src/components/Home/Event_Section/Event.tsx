@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom'
 import palletVillaImg from '../../../assets/Home_Page_images/pallet_villa.jpg'
 import BusinessStudy from './BusinessStudy'
 const Event = () => {
     return (
         <>
-
             <div className="tablet:flex tablet:justify-center tablet:flex-col items-center mb-24">
                 <div className="w-11/12 tablet:w-[70%] bigTablet:w-1/2 h-[78%] desktop:h-[82%] pt-20 desktop:pt-40">
                     <img src={palletVillaImg} className='w-[98%] tablet:w-full  object-cover h-full' alt="event villa's image with swimming pool" />
@@ -17,13 +17,13 @@ const Event = () => {
 
                         <div className="text-center mb-14 tablet:text-start">
                             <button>
-                                <a href="#" className="relative inline-flex items-center px-16 py-5 bigTablet:px-20 overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">
+                                <Link to={"/mykonos"} className="relative inline-flex items-center px-16 py-5 bigTablet:px-20 overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">
                                     <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                     <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:-translate-x-0 ease">
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                     </span>
                                     <span className="relative font-chakra  text-base">Join Event</span>
-                                </a>
+                                </Link>
                             </button>
                         </div>
                     </div>

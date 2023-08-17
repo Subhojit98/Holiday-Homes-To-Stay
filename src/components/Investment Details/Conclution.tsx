@@ -4,6 +4,7 @@ import person from '../../assets/2nd_Page_images/Fabian_Coray_-104.jpg'
 const Conclution = () => {
     return (
         <>
+            {/* Frist conclution section .. ->*/}
             <div className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10  desktop:pt-20 gap-3 `}>
                 <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-full desktop:h-full tablet:place-self-center `}>
                     <img src={investorImg} alt="poperty pictures" className='object-cover' />
@@ -30,6 +31,7 @@ const Conclution = () => {
                     </div>
                 </div>
             </div>
+            {/* second conclution section .. ->*/}
             <div className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10 desktop:pt-20 gap-3 flex-row-reverse`}>
                 <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-[90%]`}>
                     <img src={person} alt="poperty pictures" className='object-cover desktop:h-[85%]' />
@@ -62,12 +64,3 @@ const Conclution = () => {
 }
 
 export default Conclution
-{/* <button>
-                                <Link to={"/became-investor"} className="relative inline-flex items-center px-14 py-3 tablet:px-3 tablet:py-4 bigTablet:px-12 desktop:px-8 desktop:py-5  overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
-                                    <span className="absolute left-0 block w-full h-0 transition-all bg-white  opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                                    <span className="absolute  tablet:right-0 flex items-center justify-start w-10 h-10 duration-300  -translate-x-20  group-hover:-translate-x-7  ease">
-                                        <svg className="w-5 h-5 tablet:hidden" fill="#000" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                    </span>
-                                    <span className="relative font-chakra text-base">{ }</span>
-                                </Link>
-                            </button> */}

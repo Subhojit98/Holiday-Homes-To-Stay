@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer"
 const CreateAccount = () => {
     return (
         <>
-            <div className="w-full h-full ">
+            <div className=" ">
                 <CreateAccountUi />
                 <Footer />
             </div>
