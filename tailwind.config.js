@@ -32,7 +32,9 @@ export default {
       backgroundColor: {
         WholePage: '#f0ece9',
         specialBg: '#c6b5aa',
-        buttonsBg: '#222222'
+        buttonsBg: '#222222',
+        tableBg_1: '#FF1E56',
+        tableBg_2: '#323232',
       },
       textColor: {
         defaultTextColor: '#81807f',

@@ -8,7 +8,8 @@ export  const cardText: cardsData[] = [
             title: " Leisure Investor",
             body: "Use the property yourself and earn lucrative returns when it's rented out.",
             backImage: card__1_Img,
-            id: 1
+            id: 1,
+            link: 'leisure-investor',
 
         },
         {
@@ -16,7 +17,8 @@ export  const cardText: cardsData[] = [
             title: " Fixed income",
             body: "Earn a fixed, monthly income from 2.23 - 8.12% p.a. and chose from different terms.",
             backImage: card__2_Img,
-            id: 2
+            id: 2,
+            link: 'fixed-income',
 
         },
         {
@@ -24,7 +26,8 @@ export  const cardText: cardsData[] = [
             title: " Financial Investor",
             body: "Invest in one of Switzerland's most exclusive developments with  returns.",
             backImage: card__3_Img,
-            id: 3
+            id: 3,
+            link: 'fainancial-investor',
 
         },
     ]

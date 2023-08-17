@@ -3,7 +3,8 @@ export  interface cardsData  {
     head: string,
     title:string,
     body: string,
-    backImage: string
+    backImage: string,
+    link: string,
 }
 export interface image {
     intro_img: string
