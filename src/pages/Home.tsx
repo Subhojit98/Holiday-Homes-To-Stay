@@ -3,8 +3,8 @@ import Intro from "../components/Home/Intro_section/Intro"
 import ImageSlider from "../components/Home/Properties/ImageSlider"
 import Event from '../components/Home/Event_Section/Event'
 import Benefit from "../components/Home/Invest_Benefits_Scetion/Benefit"
-import ProgrameMotive from "../components/Home/Programe_Motive/ProgrameMotive"
 import Footer from "../components/Footer/Footer"
+import PiceOfAmea from "../components/Home/Programe_Motive/PiceOfAmea"
 const Home: React.FC = () => {
     return (
         <>
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
                 <ImageSlider />
                 <Event />
                 <Benefit />
-                <ProgrameMotive />
+                <PiceOfAmea />
                 <Footer />
             </div>
         </>

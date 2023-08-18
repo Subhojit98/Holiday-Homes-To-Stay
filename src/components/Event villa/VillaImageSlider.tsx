@@ -39,17 +39,19 @@ const VillaImageSlider: React.FC = () => {
                                 <p className="font-Quicksand text-[1.10rem] leading-6 mb-16 bigTablet:text-lg">Indulge in an intimate and exclusive seated dinner, with only a limited core group receiving confirmed invitations.During the dinner, prepare to be inspired by a profound speech focused on mindfulness, self-care, and the significance of mental health in the realm of investing.Following the dinner, savor deliciously crafted poolside cocktails as you unwind and engage in meaningful conversations.</p>
 
                                 <div className="flex justify-center mb-10">
-                                    <button>
-                                        <Link to={"/became-investor"} className="relative inline-flex items-center px-12 tablet:px-3 py-5 bigTablet:py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
-                                            <span className="absolute left-0 block w-full h-0 transition-all bg-white  opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                                            <span className="absolute  tablet:right-0 flex items-center justify-start w-10 h-10 duration-300 transform -translate-x-20  group-hover:-translate-x-7  ease">
-                                                <svg className="w-5 h-5 tablet:hidden" fill="#000" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    <Link to={"/became-investor"}>
+                                        <button>
+                                            <span className="relative inline-flex items-center px-12 tablet:px-3 py-5 bigTablet:py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
+                                                <span className="absolute left-0 block w-full h-0 transition-all bg-white  opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                                                <span className="absolute  tablet:right-0 flex items-center justify-start w-10 h-10 duration-300 transform -translate-x-20  group-hover:-translate-x-7  ease">
+                                                    <svg className="w-5 h-5 tablet:hidden" fill="#000" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
 
 
+                                                </span>
+                                                <span className="relative font-chakra text-base">Register Now</span>
                                             </span>
-                                            <span className="relative font-chakra text-base">Register Now</span>
-                                        </Link>
-                                    </button>
+                                        </button>
+                                    </Link>
                                 </div>
 
                             </div>
