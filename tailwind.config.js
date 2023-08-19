@@ -42,15 +42,12 @@ export default {
       }
     },
     screens: {
-
-
-
       'tablet': '768px',
 
       'bigTablet': '992px',
 
       'desktop': '1281px',
-    }
+    },
   },
   plugins: [require("daisyui"), ('flowbite/plugin')],
   daisyui: {

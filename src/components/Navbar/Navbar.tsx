@@ -1,5 +1,6 @@
 import NaturalLogo from "../../assets/logo/amea-logo.svg";
 import { useLocation } from 'react-router-dom'
+import Menu from "../Home/Hamburger/Menu";
 const Navbar = () => {
 
     // Navbar show on scroll Logic.. ->
@@ -34,9 +35,9 @@ const Navbar = () => {
 
         <>
             {/* Navbar.. -> */}
-
+            <Menu />
             <div className="h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] flex items-center w-full ">
-                <nav className="transition-all delay-[250ms] ease-in-out fixed h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] bg-WholePage z-40 w-full opacity-95">
+                <nav className="transition-all delay-[250ms] ease-in-out fixed h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] bg-WholePage z-30 w-full opacity-95">
 
                     <div className=" flex items-center justify-between h-full mx-7 tablet:mx-16 bigTablet:mx-8 desktop:mx-14  pt-3 pb-3 bigTablet:pb-0 bigTablet:p-10 desktop:pt-14">
 
