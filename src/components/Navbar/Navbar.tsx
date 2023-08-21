@@ -1,9 +1,17 @@
 import NaturalLogo from "../../assets/logo/amea-logo.svg";
-import { useLocation } from 'react-router-dom'
 import Menu from "../Home/Hamburger/Menu";
+import { useState, useEffect } from 'react'
+
 const Navbar = () => {
 
+    const [showMenu, setShowMenu] = useState(false)
+
+    const handleClick = () => {
+        setShowMenu(!showMenu)
+    }
+
     // Navbar show on scroll Logic.. ->
+
     const pageBody = document.body;
     let lastScroll = 0;
 
@@ -25,17 +33,22 @@ const Navbar = () => {
         lastScroll = currentScroll
 
     })
-    const location = useLocation()
-    const isError = location.pathname == '*'
 
-    if (isError) {
-        return null
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const reloadPage = () => {
+        window.location.reload()
     }
+
     return (
 
         <>
             {/* Navbar.. -> */}
-            <Menu />
+
+            <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+
             <div className="h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] flex items-center w-full ">
                 <nav className="transition-all delay-[250ms] ease-in-out fixed h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] bg-WholePage z-30 w-full opacity-95">
 
@@ -43,17 +56,17 @@ const Navbar = () => {
 
                         <div className="flex items-center justify-between bigTablet:mx-5">
                             {/* Hamburger Menu.. -> */}
-                            <button className="cursor-pointer hamburger group">
+                            <button className="cursor-pointer hamburger group" onClick={handleClick}>
                                 <div className="w-[30px] h-[0.85px] bg-[#101010fb] m-[2px] mt-[4.5px] bigTablet:w-10 desktop:w-12"></div>
-                                <div className="w-[30px] h-[0.85px] bg-[#101010fb] m-[2px] mt-[4.5px] bigTablet:w-10 desktop:w-12 ease-out group-hover:opacity-0 group-hover:absolute group-hover:bg-WholePage duration-200"></div>
+                                <div className="w-[30px] h-[0.85px] bg-[#101010fb] m-[2px] mt-[4.5px] bigTablet:w-10 desktop:w-12 ease-out group-hover:opacity-0 group-hover:absolute group-hover:bg-WholePage duration-100"></div>
                                 <div className="w-[30px] h-[0.85px] bg-[#101010fb] m-[2px] mt-[4.5px] bigTablet:w-10 desktop:w-12"></div>
                             </button>
                         </div>
 
                         {/* Logo.. -> */}
-                        <div className="h-full cursor-pointer">
+                        <button className="h-full cursor-pointer" onClick={reloadPage}>
                             <img src={NaturalLogo} className="h-full object-contain w-28 tablet:w-32 desktop:w-40" alt="Flowbite Logo" />
-                        </div>
+                        </button>
                     </div>
 
                 </nav>

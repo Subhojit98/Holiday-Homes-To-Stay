@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Cards = ({ cards }: cardsProp) => {
     const { head, title, body, backImage, link } = cards
+
     return (
         <>
             <div >

@@ -1,13 +1,36 @@
 import studyImg from '../../../assets/Home_Page_images/Home_page_image_3.jpg'
 import { Link } from 'react-router-dom';
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const BusinessStudy = () => {
+    const { ref, inView } = useInView({ threshold: 0.3 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className='w-full h-full desktop:h-screen bg-specialBg tablet:flex justify-center items-center pb-14 tablet:pb-16 bigTablet:pb-20 desktop:pb-28'>
+            <div ref={ref} className='w-full h-full desktop:h-screen bg-specialBg tablet:flex justify-center items-center pb-14 tablet:pb-16 bigTablet:pb-20 desktop:pb-28'>
 
-                <div className="w-11/12 h-[35%] tablet:h-1/2 desktop:h-[72%] pt-20 place-self-end mb-14">
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={animation}
+                    className="w-11/12 h-[35%] tablet:h-1/2 desktop:h-[72%] pt-20 place-self-end mb-14">
                     <img src={studyImg} className='w-full object-cover h-full' alt="Sceenery of the swiming pool and mountains" />
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full h-full">
                     <div className="w-[82%] desktop:w-[75%]  mt-12 desktop:mt-28">
@@ -16,7 +39,7 @@ const BusinessStudy = () => {
                         <p className="text-lg tablet:text-base font-Quicksand mb-14 desktop:text-xl">The development is located in Ronco sopra Ascona, Switzerland, offering one of the most breathtaking sceneries, the highest security standards, and the finest quality benchmarks in the world.</p>
 
 
-                        <div className="flex flex-col-reverse justify-center bigTablet:justify-start gap-2 tablet:gap-3 tablet:flex-row mb-14">
+                        <div className="flex flex-col-reverse justify-center items-center bigTablet:justify-start gap-2 tablet:gap-3 tablet:flex-row mb-14">
                             <Link to={"/became-investor"}>
                                 <button>
                                     <span className="relative inline-flex items-center px-[3.45rem]  tablet:px-3 py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">

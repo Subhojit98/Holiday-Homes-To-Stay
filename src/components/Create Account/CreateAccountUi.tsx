@@ -1,7 +1,13 @@
+import { useEffect } from 'react'
 const CreateAccountUi: React.FC = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
+
+
             <div className="flex w-full h-full">
                 {/* Side Empty Bar.. -> */}
                 <div className="w-[8vw] h-full"></div>

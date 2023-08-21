@@ -1,15 +1,44 @@
 import { Link } from 'react-router-dom'
 import benfitData from '../../../data/investBenefit'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const BenefitTypes = () => {
+
+    const { ref, inView, } = useInView({ threshold: 0.1 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div>
+            <div ref={ref}>
                 {
                     benfitData?.map(({ id, image, imagePosition, title, head, body, btnText, imagePostionOnFlex }) => {
+
+
                         return <div key={id} className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10 ${imagePostionOnFlex} desktop:pt-20 gap-5`}>
-                            <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh] bigTablet:w-full desktop:h-full tablet:place-self-center ${imagePosition} `}>
+
+                            <motion.div
+                                initial={{ y: 30, opacity: 0 }}
+                                animate={animation}
+
+                                className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh] bigTablet:w-full desktop:h-full tablet:place-self-center ${imagePosition} `}>
                                 <img src={image} alt="poperty pictures" className='w-full object-cover h-full' />
-                            </div>
+
+                            </motion.div>
 
                             <div className="flex justify-center w-full h-full bigTablet:w-[88%]">
                                 <div className="w-[82%] tablet:w-[88%] bigTablet:w-[60%] mt-12 bigTablet:mt-14">

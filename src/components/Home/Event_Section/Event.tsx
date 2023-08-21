@@ -1,13 +1,36 @@
 import { Link } from 'react-router-dom'
 import palletVillaImg from '../../../assets/Home_Page_images/pallet_villa.jpg'
 import BusinessStudy from './BusinessStudy'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const Event = () => {
+    const { ref, inView } = useInView({ threshold: 0.2 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className="tablet:flex tablet:justify-center tablet:flex-col items-center mb-24">
-                <div className="w-11/12 tablet:w-[70%] bigTablet:w-1/2 h-[78%] desktop:h-[82%] pt-20 desktop:pt-40">
+            <div ref={ref} className="tablet:flex tablet:justify-center tablet:flex-col items-center mb-24">
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={animation}
+                    className="w-11/12 tablet:w-[70%] bigTablet:w-1/2 h-[78%] desktop:h-[82%] pt-20 desktop:pt-40">
                     <img src={palletVillaImg} className='w-[98%] tablet:w-full  object-cover h-full' alt="event villa's image with swimming pool" />
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full h-full">
                     <div className="w-[82%] tablet:w-[60%] bigTablet:w-2/5 mt-12 bigTablet:mt-20">

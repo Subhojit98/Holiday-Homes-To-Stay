@@ -20,7 +20,7 @@ export const MotiveData = [
     body_1_text: "Our journey started in 2020 and attracted over 2’000 interested individuals, potential investors, and partners. For the first time, you can invest in one of the world’s most remarkable projects and earn the developer margin. This means you will benefit from the entire value creation cycle with an investment starting at only USD 25’000.",
     body_2_text : "Based on the capitalization of the expected future value of the project once realized, Amēa equity investors will enjoy a steady price appreciation every year until the project commences to be operative and has reached its expected operational valuation.",
     btn_1_Text: "opportunities",
-    btn_2_Text: "Watch review",
+    btn_2_Text: "Review",
     image: motiveImg_2,
     imagePosition: '',
     imagePostionOnFlex: ''}

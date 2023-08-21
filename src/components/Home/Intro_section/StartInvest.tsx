@@ -1,9 +1,32 @@
 import { image } from "../../../interface/CradsData"
 import { Link } from 'react-router-dom'
+import { useInView } from 'react-intersection-observer'
+import { motion, useAnimation } from "framer-motion"
+import { useEffect, useState } from "react"
+
 const StartInvest = ({ intro_img }: image) => {
+
+    const { ref, inView } = useInView()
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
+
     return (
         <>
-            <div className=" flex justify-center flex-col items-center w-11/12 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[75%] bigTablet:mt-20 bigTablet:mb-10 desktop:mb-0">
+            <div ref={ref} className=" flex justify-center flex-col items-center w-11/12 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[75%] bigTablet:mt-20 bigTablet:mb-10 desktop:mb-0">
 
                 {/* Intro Text and Image section.. -> */}
 
@@ -20,10 +43,10 @@ const StartInvest = ({ intro_img }: image) => {
 
                             {/* Intro Buttons.. -> */}
 
-                            <div className="flex flex-col justify-center bigTablet:justify-start gap-2 tablet:gap-3 tablet:flex-row">
+                            <div className="flex flex-col items-center justify-center bigTablet:justify-start gap-2 tablet:gap-3 tablet:flex-row">
                                 <Link to={"became-investor"}>
                                     <button>
-                                        <span className="relative inline-flex items-center px-12  tablet:px-3 py-5 bigTablet:py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">
+                                        <span className="relative inline-flex items-center px-12  tablet:px-3 py-4 bigTablet:py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-white border-[1.1px] border-black bg-black hover:text-black group hover:bg-black">
                                             <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                                             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:-translate-x-0 ease">
                                                 <svg className="w-5 h-5 tablet:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -34,7 +57,7 @@ const StartInvest = ({ intro_img }: image) => {
                                 </Link>
                                 <Link to={"became-investor"}>
                                     <button>
-                                        <span className="relative inline-flex items-center px-12 tablet:px-3 py-5 bigTablet:py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
+                                        <span className="relative inline-flex items-center px-12 tablet:px-3 py-4 bigTablet:py-5 bigTablet:px-10 overflow-hidden text-lg font-medium text-black border-[1.1px] border-black bg-transparent hover:text-black group hover:bg-transparent">
                                             <span className="absolute left-0 block w-full h-0 transition-all bg-white  opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
                                             <span className="absolute  tablet:right-0 flex items-center justify-start w-10 h-10 duration-300 transform -translate-x-20  group-hover:-translate-x-7  ease">
                                                 <svg className="w-5 h-5 tablet:hidden" fill="#000" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -51,9 +74,12 @@ const StartInvest = ({ intro_img }: image) => {
 
                 </div>
 
-                <div className="h-full w-[90%] flex flex-col items-center justify-center mb-24">
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={animation}
+                    className="h-full w-[90%] flex flex-col items-center justify-center mb-24">
                     <img src={intro_img} alt="" className="h-[90%] object-cover" />
-                </div>
+                </motion.div>
             </div >
 
         </>

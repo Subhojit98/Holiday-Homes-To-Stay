@@ -1,15 +1,39 @@
 import { Link } from 'react-router-dom'
 import CommunityImg from '../../../assets/Home_Page_images/Home_page_image_7.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const JoinCommunity = () => {
+
+    const { ref, inView } = useInView({ threshold: 0.2 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className="w-full h-full flex justify-center flex-col items-center pt-20 tablet:flex-row bg-specialBg tablet:gap-4">
+            <div ref={ref} className="w-full h-full flex justify-center flex-col items-center pt-20 tablet:flex-row bg-specialBg tablet:gap-4">
 
                 <div className="flex flex-col tablet:flex-row h-[90%] w-[90%] bigTablet:w-[82%] desktop:w-[75%] items-center desktop:mt-28 desktop:mb-20">
 
-                    <div className="h-[90%] w-[85%] flex flex-col items-center justify-center bigTablet:w-[75%]">
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={animation}
+                        className="h-[90%] w-[85%] flex flex-col items-center justify-center bigTablet:w-[75%]">
                         <img src={CommunityImg} className="h-[90%] object-cover tablet:h-full w-full bigTablet:w-[88%] desktop:w-[85%]" alt="image of a girl with sunglass" />
-                    </div>
+                    </motion.div>
 
                     <div className=" w-full desktop:w-[80%] flex flex-col items-center justify-center pb-16">
 
