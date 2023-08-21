@@ -1,16 +1,40 @@
 import { Link } from "react-router-dom"
 import { info } from "../../data/aboutStay"
-
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const AboutStay = () => {
+
+
+    const { ref, inView, } = useInView({ threshold: 0.2 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className="w-full h-full bg-specialBg pb-20">
+            <div ref={ref} className="w-full h-full bg-specialBg pb-20">
                 {
                     info?.map(({ image, imagePosition, title, head, body, btnText, imagePostionOnFlex }, index) => {
                         return <div key={index} className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10 ${imagePostionOnFlex} desktop:pt-20 gap-5`}>
-                            <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh] bigTablet:w-full desktop:h-[70vh] tablet:place-self-center ${imagePosition} `}>
+                            <motion.div
+                                initial={{ y: 30, opacity: 0 }}
+                                animate={animation}
+                                className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh] bigTablet:w-full desktop:h-[70vh] tablet:place-self-center ${imagePosition} `}>
                                 <img src={image} alt="poperty pictures" className='w-full object-center object-cover h-full' />
-                            </div>
+                            </motion.div>
 
                             <div className="flex justify-center w-full h-full bigTablet:w-[88%]">
                                 <div className="w-[82%] tablet:w-[88%] bigTablet:w-[60%] mt-12 bigTablet:mt-14">

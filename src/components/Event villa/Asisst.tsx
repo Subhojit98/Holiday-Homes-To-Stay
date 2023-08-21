@@ -1,12 +1,37 @@
 import { Link } from 'react-router-dom'
 import assistent from '../../assets/3rd_Page_images/kinga_egyud-e1648051039206.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const Asisst = () => {
+
+
+    const { ref, inView, } = useInView()
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className={`items-center flex flex-col tablet:flex-row gap-3 bigTablet:p-5`}>
-                <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-[90%]`}>
+            <div ref={ref} className={`items-center flex flex-col tablet:flex-row gap-3 bigTablet:p-5`}>
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={animation}
+                    className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-[90%]`}>
                     <img src={assistent} alt="poperty pictures" className='object-cover desktop:h-[85%]' />
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full h-full bigTablet:w-[88%] tablet:place-self-center ">
                     <div className="w-[82%] tablet:w-[88%] bigTablet:w-[60%] mt-12 bigTablet:mt-14">

@@ -1,10 +1,30 @@
 import { Link } from "react-router-dom"
 import intro_img from '../../assets/3rd_Page_images/8103524.jpg'
-Link
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const Intro = () => {
+
+    const { ref, inView, } = useInView({ threshold: 0.1 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className="flex justify-center tablet:mt-20">
+            <div ref={ref} className="flex justify-center tablet:mt-20">
                 <div className=" flex justify-center flex-col items-center w-11/12 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[75%] bigTablet:mt-20 bigTablet:mb-10 desktop:mb-0">
 
                     {/* Intro Text and Image section.. -> */}
@@ -45,9 +65,12 @@ const Intro = () => {
 
                     </div>
 
-                    <div className="h-full w-full flex flex-col items-center justify-center mb-24">
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={animation}
+                        className="h-full w-full flex flex-col items-center justify-center mb-24">
                         <img src={intro_img} alt="" className="h-[90%] object-cover" />
-                    </div>
+                    </motion.div>
                 </div >
             </div>
 

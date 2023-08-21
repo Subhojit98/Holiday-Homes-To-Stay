@@ -2,7 +2,28 @@ import { Carousel } from 'flowbite-react'
 import { villaImages } from '../../data/eventVillaSliderImages'
 import { Link } from 'react-router-dom'
 import diniing from '../../assets/3rd_Page_images/2B4A1010.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const VillaImageSlider: React.FC = () => {
+
+    const { ref, inView, } = useInView({ threshold: 0.1 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
             <div className="w-full h-full mt-20 flex justify-center">
@@ -24,7 +45,7 @@ const VillaImageSlider: React.FC = () => {
             </div>
 
             <div className="flex justify-center">
-                <div className=" flex justify-center flex-col items-center w-11/12 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[75%] tablet:mt-20 bigTablet:mt-40  desktop:mb-0">
+                <div ref={ref} className=" flex justify-center flex-col items-center w-11/12 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[75%] tablet:mt-20 bigTablet:mt-40  desktop:mb-0">
 
 
                     <div className=" w-full flex flex-col items-center justify-center pb-16">
@@ -59,9 +80,12 @@ const VillaImageSlider: React.FC = () => {
 
                     </div>
 
-                    <div className="h-full w-full flex flex-col items-center justify-center mb-24">
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={animation}
+                        className="h-full w-full flex flex-col items-center justify-center mb-24">
                         <img src={diniing} alt="" className="h-full tablet:h-[60%] object-cover object-center bigTablet:h-[70%] w-full" />
-                    </div>
+                    </motion.div>
                 </div >
             </div>
         </>

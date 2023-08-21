@@ -1,12 +1,34 @@
 import { Link } from 'react-router-dom'
 import introImg_1 from '../../assets/4th_Page_images/San_Giorgio_Cliffs_171.jpg'
 import introImg_2 from '../../assets/4th_Page_images/79452002_1202094109984362_1863676249259868194_n.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const Intro = () => {
+
+    const { ref, inView, } = useInView({ threshold: 0.3 })
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
+
     return (
         <>
             {/* First Scetion Image and text.. -> */}
 
-            <div className="flex justify-center tablet:mt-20">
+            <div ref={ref} className="flex justify-center tablet:mt-20">
                 <div className=" flex justify-center flex-col items-center w-11/12 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[90%] bigTablet:mt-20 bigTablet:mb-10 desktop:mb-0">
 
                     {/* Intro_1 Text and Image section.. -> */}
@@ -29,9 +51,12 @@ const Intro = () => {
 
                     </div>
 
-                    <div className="h-full w-full flex flex-col items-center justify-center">
-                        <img src={introImg_1} alt="" className="h-[90%] tablet:h-[60%] desktop:h-[70%] w-full object-cover" />
-                    </div>
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={animation}
+                        className="h-full w-full flex flex-col items-center justify-center">
+                        <img src={introImg_1} alt="" className="h-[90%] tablet:h-[60%] desktop:h-[83%] w-full object-cover" />
+                    </motion.div>
                 </div >
             </div>
 
@@ -74,9 +99,12 @@ const Intro = () => {
 
                     </div>
 
-                    <div className="h-full w-full flex flex-col items-center justify-center">
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: -30, opacity: 1 }}
+                        className="h-full w-full flex flex-col items-center justify-center">
                         <img src={introImg_2} alt="" className="h-[90%] tablet:h-1/2  desktop:h-[70%] object-cover" />
-                    </div>
+                    </motion.div>
                 </div >
             </div>
         </>

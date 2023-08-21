@@ -1,5 +1,16 @@
 import LogoSvg from '../../assets/logo/amea-logo-white.svg'
+import { useEffect } from 'react'
 const FooterUi = () => {
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const reloadPage = () => {
+        window.location.reload()
+    }
+
     return (
         <>
 
@@ -9,10 +20,10 @@ const FooterUi = () => {
                 >
                     <div className="flex flex-row-reverse">
                         <div>
-                            <div className="text-teal-600 dark:text-teal-300">
+                            <button className="text-teal-600 dark:text-teal-300" onClick={reloadPage}>
                                 <img src={LogoSvg} alt="" className='h-4 bigTablet:h-6 hover:cursor-pointer' />
 
-                            </div>
+                            </button>
 
                             <ul className="mt-8 flex justify-between gap-6">
                                 <li>
@@ -161,7 +172,7 @@ const FooterUi = () => {
                                             href="#"
                                             className="text-neutral-500 transition  hover:text-neutral-300 hover:opacity-75"
                                         >
-                                            Meet the Team
+                                            Home
                                         </a>
                                     </li>
 

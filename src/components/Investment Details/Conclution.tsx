@@ -1,12 +1,35 @@
 import { Link } from "react-router-dom"
 import investorImg from '../../assets/Home_Page_images/Home_page_image_9.jpg'
 import person from '../../assets/2nd_Page_images/Fabian_Coray_-104.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const Conclution = () => {
+
+
+    const { ref, inView, } = useInView()
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
             {/* Frist conclution section .. ->*/}
             <div className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10  desktop:pt-20 gap-3 `}>
-                <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-full desktop:h-full tablet:place-self-center `}>
+                <div
+                    className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-full desktop:h-full tablet:place-self-center `}>
                     <img src={investorImg} alt="poperty pictures" className='object-cover' />
                 </div>
 
@@ -34,10 +57,13 @@ const Conclution = () => {
                 </div>
             </div>
             {/* second conclution section .. ->*/}
-            <div className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10 desktop:pt-20 gap-3 flex-row-reverse`}>
-                <div className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-[90%]`}>
+            <div ref={ref} className={` tablet:flex tablet:justify-center tablet:mt-10 bigTablet:pt-10 desktop:pt-20 gap-3 flex-row-reverse`}>
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={animation}
+                    className={`w-[90%] tablet:w-[96%] pt-20 bigTablet:h-[60vh bigTablet:w-[90%]`}>
                     <img src={person} alt="poperty pictures" className='object-cover desktop:h-[85%]' />
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full h-full bigTablet:w-[88%]  tablet:place-self-center ">
                     <div className="w-[82%] tablet:w-[88%] bigTablet:w-[60%] mt-12 bigTablet:mt-14">

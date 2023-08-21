@@ -1,12 +1,32 @@
 import { Link } from 'react-router-dom'
 import { CardDetailsData } from '../..//interface/InvesmentBrekdownData'
-
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 const InvestmentBreakdown: React.FC<CardDetailsData> = ({ introBody, introHaed, introImage, introEnd, introPoints, btnText_1, btnText_2 }) => {
 
+
+    const { ref, inView, } = useInView()
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -80,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
-            <div className="w-full flex justify-center">
+            <div ref={ref} className="w-full flex justify-center">
                 <div className=" flex justify-center flex-col items-center w-11/12 tablet:mt-20 tablet:flex-row-reverse tablet:gap-14 bigTablet:w-[75%] bigTablet:mt-20 bigTablet:mb-10 desktop:mb-0">
 
 
@@ -57,9 +77,12 @@ const InvestmentBreakdown: React.FC<CardDetailsData> = ({ introBody, introHaed, 
 
                     </div>
 
-                    <div className="h-full w-full flex flex-col items-center justify-center mb-16 mt-28 ">
-                        <img src={introImage} alt="" className="h-full object-cover w-[90%] tablet:w-[95%] tablet:h-[80vh]" />
-                    </div>
+                    <motion.div
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={animation}
+                        className="h-full w-full flex flex-col items-center justify-center mb-16 mt-28 ">
+                        <img src={introImage} alt="" className="h-full object-cover w-[90%] tablet:w-[95%] tablet:h-[83%]" />
+                    </motion.div>
                 </div >
 
             </div>

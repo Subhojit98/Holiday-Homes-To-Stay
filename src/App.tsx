@@ -1,4 +1,5 @@
 import './App.css'
+import Loading from './pages/loading/Loading'
 import Navbar from './components/Navbar/Navbar';
 import CreateAccount from './pages/CreateAccount';
 import Home from './pages/Home'
@@ -8,11 +9,20 @@ import InvestmentDetails_2 from './pages/InvestmentDetails_2';
 import InvestmentDetails_3 from './pages/InvestmentDetails_3';
 import EventVilla from './pages/EventVilla';
 import About from './pages/About';
-import PageNotFound from './pages/Error/PageNotFound';
+import React, { useState } from 'react'
+// import PageNotFound from './pages/Error/PageNotFound';
+const PageNotFound = React.lazy(() => import('./pages/Error/PageNotFound'))
 function App() {
+
+  const [isloading, setIsLoading] = useState(true)
+
+  window.onload = () => {
+    setIsLoading(!isloading)
+  }
 
   return (
     <>
+
       <Router>
         <Navbar />
         <Routes>
@@ -28,6 +38,10 @@ function App() {
 
         </Routes>
       </Router>
+
+      {/* Page Loader Screen.. -> */}
+      {isloading && <Loading />}
+
     </>
   )
 }

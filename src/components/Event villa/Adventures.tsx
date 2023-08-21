@@ -1,15 +1,39 @@
 import { Link } from "react-router-dom"
 import adventureImg from '../../assets/3rd_Page_images/8103487-HDR.jpg'
 import spa from '../../assets/3rd_Page_images/VMM-spa-A.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 const Adventures = () => {
+
+    const { ref, inView, } = useInView()
+    const animation = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
+    useEffect(() => {
+        if (inView && hasAnimated) {
+            animation.start({
+                y: -30,
+                transition: {
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                },
+                opacity: [0, 0.5, 1]
+            })
+        }
+        else setHasAnimated(!hasAnimated)
+    }, [inView, animation])
+
     return (
         <>
             {/* Section text and iamge ..1 -> */}
-            <div className='w-full h-full desktop:h-screen bg-specialBg flex flex-col justify-center bigTablet:flex-row-reverse bigTablet:p-7 items-center pb-14 tablet:pb-16 bigTablet:pb-20 desktop:pb-28'>
+            <div ref={ref} className=' w-full h-full desktop:h-screen bg-specialBg flex flex-col justify-center bigTablet:flex-row-reverse bigTablet:p-7 items-center pb-14 tablet:pb-16 bigTablet:pb-20 desktop:pb-28'>
 
-                <div className="w-11/12 h-[35%] tablet:h-1/2 desktop:h-full pt-20  mb-5">
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={animation}
+                    className="w-11/12 h-[35%] tablet:h-1/2 desktop:h-full pt-20  mb-5">
                     <img src={adventureImg} className='w-full object-cover h-full' alt="Sceenery and the sea" />
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full h-full">
                     <div className="w-[82%] desktop:w-[75%]  mt-12 desktop:mt-28">
@@ -72,9 +96,12 @@ const Adventures = () => {
 
                     </div>
 
-                    <div className="h-full w-full flex flex-col items-center justify-center mt-20">
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={animation}
+                        className="h-full w-full flex flex-col items-center justify-center mt-20">
                         <img src={spa} alt="" className="h-[90%] tablet:h-[60%] desktop:h-[80%] object-cover" />
-                    </div>
+                    </motion.div>
                 </div >
             </div>
         </>
