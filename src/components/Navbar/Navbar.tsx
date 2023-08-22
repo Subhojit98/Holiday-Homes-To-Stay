@@ -1,10 +1,12 @@
+import { useLocation } from "react-router-dom";
 import NaturalLogo from "../../assets/logo/amea-logo.svg";
 import Menu from "../Home/Hamburger/Menu";
 import { useState, useEffect } from 'react'
-
 const Navbar = () => {
 
     const [showMenu, setShowMenu] = useState(false)
+
+    // Seting when Showing Hamburger menu .. ->
 
     const handleClick = () => {
         setShowMenu(!showMenu)
@@ -42,14 +44,21 @@ const Navbar = () => {
         window.location.reload()
     }
 
+    // Hideing the navbar when its error page ..
+    const location = useLocation()
+
+    if (location.pathname == "/page-not-found-404") {
+        return null
+    }
     return (
 
         <>
             {/* Navbar.. -> */}
 
+            {/* Hamburger Menu .. -> */}
             <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
 
-            <div className="h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] flex items-center w-full ">
+            <div className="h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] flex items-center w-full z-40">
                 <nav className="transition-all delay-[250ms] ease-in-out fixed h-[4.8rem] tablet:h-[6.05rem] bigTablet:h-[7.30rem] desktop:h-[8.55rem] bg-WholePage z-30 w-full opacity-95">
 
                     <div className=" flex items-center justify-between h-full mx-7 tablet:mx-16 bigTablet:mx-8 desktop:mx-14  pt-3 pb-3 bigTablet:pb-0 bigTablet:p-10 desktop:pt-14">

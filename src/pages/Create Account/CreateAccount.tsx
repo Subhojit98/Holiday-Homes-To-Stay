@@ -1,5 +1,5 @@
-import CreateAccountUi from "../components/Create Account/CreateAccountUi"
-import Footer from "../components/Footer/Footer"
+import CreateAccountUi from "../../components/Create Account/CreateAccountUi"
+import Footer from "../../components/Footer/Footer"
 
 const CreateAccount = () => {
     return (
