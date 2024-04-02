@@ -13,7 +13,7 @@ const Table: React.FC<tableDataProps> = ({ tHaed, tVal }) => {
         <>
             <div className="w-full tablet:pl-8  bigTablet:mb-10 desktop:mb-16 flex justify-center bigTablet:w-[95%]">
                 <div className="overflow-x-auto ml-7 tablet:ml-0 ">
-                    <div className="relative shadow-md sm:rounded-lg  ">
+                    <div className="relative shadow-md sm:rounded-lg">
                         <table className=" text-left ">
                             <thead className="text-xs border-b border-black text-black">
                                 <tr>
