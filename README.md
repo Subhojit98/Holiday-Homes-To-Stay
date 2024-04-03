@@ -1,27 +1,70 @@
-# React + TypeScript + Vite
+# Holiday Homes To Stay
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Holiday Homes To Stay, a web application that helps you plan your holiday stay and make the most out of your time off. Whether you're looking for a cozy cabin in the mountains or a beachfront villa, this project provides a platform to explore various holiday homes and plan your dream getaway.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Search and Explore:** Find holiday homes based on location, amenities, and other preferences.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Detailed Listings:** Access detailed information about each holiday home, including photos, pricing, and availability.
 
-- Configure the top-level `parserOptions` property like this:
+- **User Reviews:** Read and leave reviews to help other travelers make informed decisions.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- **User Profiles:** Create and manage your user profile with booking history and preferences.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Demo
+
+![Demo Video](https://github.com/Subhojit98/Holiday_Homes_To_Stay/assets/106329188/306d0a9f-a97c-4c15-b811-13560279442f)
+
+Check out the [demo video](https://github.com/Subhojit98/Holiday_Homes_To_Stay/assets/106329188/a97960c1-d064-49f4-976a-d3d9cfe30377) to see Holiday Homes To Stay in action.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Subhojit98/Holiday_Homes_To_Stay.git
+   
+2. Navigate to the project directory:
+   ```bash
+cd Holiday_Homes_To_Stay
+
+3. 3. Install dependencies:
+   ```bash
+npm install
+
+
+## Usage
+
+1. Start the application:
+
+   ```bash
+ npm start
+
+2. Open your browser and visit http://localhost:3000 to explore holiday homes and plan your stay.
+
+## Technologies Used
+
+    React: Frontend development for a responsive and dynamic user interface.
+
+    Node.js: Backend development to handle server-side functionalities.
+
+    DaisyUi: For the modern Components.
+
+    Framer Motion: For Cool animations.
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests to enhance the features and functionalities of Holiday Homes To Stay.
+
+## License
+
+This project is licensed under the MIT License.
