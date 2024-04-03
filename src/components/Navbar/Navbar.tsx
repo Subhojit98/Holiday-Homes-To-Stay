@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import NaturalLogo from "../../assets/logo/amea-logo.svg";
+import NaturalLogo from "../../assets/logo/amea-logo.png";
 import Menu from "../Home/Hamburger/Menu";
 import { useState, useEffect } from 'react'
 const Navbar = () => {
