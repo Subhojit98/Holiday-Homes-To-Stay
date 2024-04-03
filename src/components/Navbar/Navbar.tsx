@@ -18,7 +18,7 @@ const Navbar = () => {
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset
+        const currentScroll = window.scrollY
 
         if (currentScroll <= 0) {
             pageBody.classList.remove('scroll-up')
