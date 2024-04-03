@@ -1,0 +1,1 @@
+import{r as e,j as s,F as a}from"./index-fbf6d171.js";import{D as t,I as o,f as r,T as n,a as x,A as i,C as c}from"./Table-4c37bf94.js";const l=()=>(e.useEffect(()=>{window.scrollTo(0,0)},[]),s.jsxs(s.Fragment,{children:[s.jsx(t,{herotext:"Earn a fixed income"}),s.jsx(o,{...r}),s.jsx(n,{...x}),s.jsx(i,{}),s.jsx(c,{}),s.jsx(a,{})]}));export{l as default};
