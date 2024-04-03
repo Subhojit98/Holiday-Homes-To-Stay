@@ -1,0 +1,1 @@
+import{r as t,j as s,F as a}from"./index-3ab0b51c.js";import{D as e,I as o,l as r,T as n,p as l,A as x,C as i}from"./Table-10af8012.js";const m=()=>(t.useEffect(()=>{window.scrollTo(0,0)},[]),s.jsxs(s.Fragment,{children:[s.jsx(e,{herotext:"Holidays that pay out."}),s.jsx(o,{...r}),s.jsx(n,{...l}),s.jsx(x,{}),s.jsx(i,{}),s.jsx(a,{})]}));export{m as default};
