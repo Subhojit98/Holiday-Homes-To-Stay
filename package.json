@@ -1,10 +1,10 @@
 
 {
+  "homepage": "https://Subhojit98.github.io/Holiday_Homes_To_Stay",
   "name": "my-travel-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"homepage": "https://Subhojit98.github.io/Holiday_Homes_To_Stay",
 
   "scripts": {
   "dev": "vite",
