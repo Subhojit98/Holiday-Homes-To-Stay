@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import NaturalLogo from "/src/assets/logo/amea-logo.svg";
 import Menu from "../Home/Hamburger/Menu";
 import { useState, useEffect } from 'react'
+import NavBarLogo from "../svgs/NavBarLogo";
 const Navbar = () => {
 
     const [showMenu, setShowMenu] = useState(false)
@@ -74,7 +74,7 @@ const Navbar = () => {
 
                         {/* Logo.. -> */}
                         <button className="h-full cursor-pointer" onClick={reloadPage}>
-                            <img src={NaturalLogo} className="h-full object-contain w-28 tablet:w-32 desktop:w-40" alt="Flowbite Logo" />
+                            <NavBarLogo />
                         </button>
                     </div>
 
