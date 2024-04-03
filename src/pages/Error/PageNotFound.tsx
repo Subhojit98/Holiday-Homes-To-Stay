@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import errorImg from '/src/assets/logo/server down.svg'
+import ServerDownSvg from "../../components/svgs/ServerDownSvg"
 const PageNotFound: React.FC = () => {
     return (
         <>
@@ -18,7 +18,7 @@ const PageNotFound: React.FC = () => {
                             </button></Link>
                         </div>
                         <div className="w-11/12 tablet:flex tablet:justify-end tablet:w-1/2 mx-5 my-12 justify-center">
-                            <img src={errorImg} alt="Page not found" className="object-cover" />
+                            <ServerDownSvg />
                         </div>
 
                     </div>
