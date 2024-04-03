@@ -1,5 +1,5 @@
-import staringImg from '../assets/2nd_Page_images/Scene_07_CL-copy-e1677327503337.jpg'
-import fixedIncomeStaringImg from '../assets/Home_Page_images/Home_page_image_1.jpg'
+import staringImg from '/src/assets/2nd_Page_images/Scene_07_CL-copy-e1677327503337.jpg'
+import fixedIncomeStaringImg from '/src/assets/Home_Page_images/Home_page_image_1.jpg'
 import { CardDetailsData } from '../interface/InvesmentBrekdownData'
  const leisureInvestor:CardDetailsData = {
 

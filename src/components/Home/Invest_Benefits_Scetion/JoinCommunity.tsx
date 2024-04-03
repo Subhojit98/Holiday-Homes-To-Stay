@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CommunityImg from '../../../assets/Home_Page_images/Home_page_image_7.jpg'
+import CommunityImg from '/src/assets/Home_Page_images/Home_page_image_7.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

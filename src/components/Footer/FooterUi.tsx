@@ -1,4 +1,4 @@
-import LogoSvg from '../../assets/logo/amea-logo-white.svg'
+import LogoSvg from '/src/assets/logo/amea-logo-white.svg'
 import { useEffect } from 'react'
 const FooterUi = () => {
 

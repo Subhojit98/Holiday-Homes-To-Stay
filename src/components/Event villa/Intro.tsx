@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import intro_img from '../../assets/3rd_Page_images/8103524.jpg'
+import intro_img from '/src/assets/3rd_Page_images/8103524.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

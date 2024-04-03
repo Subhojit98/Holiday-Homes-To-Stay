@@ -1,7 +1,7 @@
 import { Carousel } from 'flowbite-react'
 import { villaImages } from '../../data/eventVillaSliderImages'
 import { Link } from 'react-router-dom'
-import diniing from '../../assets/3rd_Page_images/2B4A1010.jpg'
+import diniing from '/src/assets/3rd_Page_images/2B4A1010.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

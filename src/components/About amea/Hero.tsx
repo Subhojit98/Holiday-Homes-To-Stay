@@ -1,4 +1,4 @@
-import heroImage from '../../assets/4th_Page_images/LundbergDesign_Sonoma-9-copy_yczde5.jpeg'
+import heroImage from '/src/assets/4th_Page_images/LundbergDesign_Sonoma-9-copy_yczde5.jpeg'
 
 const Hero = () => {
     return (

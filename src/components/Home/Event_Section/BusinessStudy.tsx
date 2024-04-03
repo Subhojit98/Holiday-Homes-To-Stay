@@ -1,4 +1,4 @@
-import studyImg from '../../../assets/Home_Page_images/Home_page_image_3.jpg'
+import studyImg from '/src/assets/Home_Page_images/Home_page_image_3.jpg'
 import { Link } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'

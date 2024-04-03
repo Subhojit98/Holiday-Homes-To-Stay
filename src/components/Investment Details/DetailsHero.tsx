@@ -1,4 +1,4 @@
-import heroVideo from '../../assets/2nd_Page_images/card_Video.mp4'
+import heroVideo from '/src/assets/2nd_Page_images/card_Video.mp4'
 interface textProps {
     herotext: string
 }

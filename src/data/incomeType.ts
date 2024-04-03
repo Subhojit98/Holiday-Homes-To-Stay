@@ -1,7 +1,7 @@
 import { cardsData } from '../interface/CradsData'
-import card__1_Img from '../assets/Home_Page_images/scene_02_Cam_02aa_CL_C-copy.jpg'
-import card__2_Img from '../assets/Home_Page_images/Scene_08_Dusk_CL-copy.jpg'
-import card__3_Img from '../assets/Home_Page_images/Villa_Pool_Island_PP_01.jpg'
+import card__1_Img from '/src/assets/Home_Page_images/scene_02_Cam_02aa_CL_C-copy.jpg'
+import card__2_Img from '/src/assets/Home_Page_images/Scene_08_Dusk_CL-copy.jpg'
+import card__3_Img from '/src/assets/Home_Page_images/Villa_Pool_Island_PP_01.jpg'
 export  const cardText: cardsData[] = [
         {
             head: "Starting from USD 25,000",

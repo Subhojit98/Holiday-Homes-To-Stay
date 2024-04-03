@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import errorImg from '../../assets/logo/server down.svg'
+import errorImg from '/src/assets/logo/server down.svg'
 const PageNotFound: React.FC = () => {
     return (
         <>

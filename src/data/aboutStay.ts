@@ -1,5 +1,5 @@
-import image_1 from '../assets/3rd_Page_images/pool.jpg'
-import image_2 from '../assets/3rd_Page_images/personal-driver-service1.jpg'
+import image_1 from '/src/assets/3rd_Page_images/pool.jpg'
+import image_2 from '/src/assets/3rd_Page_images/personal-driver-service1.jpg'
 export const info = [
         {
     head: "Soho Roc House",

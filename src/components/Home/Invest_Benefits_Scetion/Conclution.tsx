@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import bgImage from '../../../assets/Home_Page_images/Scene_08_Dusk_CL-copy.jpg'
+import bgImage from '/src/assets/Home_Page_images/Scene_08_Dusk_CL-copy.jpg'
 const Conclution = () => {
     return (
         <>

@@ -1,6 +1,6 @@
-import image_1 from '../assets/Home_Page_images/Home_page_image_4.jpg'
-import image_2 from '../assets/Home_Page_images/Home_page_image_5.jpg'
-import image_3 from '../assets/Home_Page_images/Home_page_image_6.jpg'
+import image_1 from '/src/assets/Home_Page_images/Home_page_image_4.jpg'
+import image_2 from '/src/assets/Home_Page_images/Home_page_image_5.jpg'
+import image_3 from '/src/assets/Home_Page_images/Home_page_image_6.jpg'
  const benfitData = [
     {id: 1,
     head: "Additional Investor privileges",

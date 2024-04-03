@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import investorImg from '../../assets/Home_Page_images/Home_page_image_9.jpg'
-import person from '../../assets/2nd_Page_images/Fabian_Coray_-104.jpg'
+import investorImg from '/src/assets/Home_Page_images/Home_page_image_9.jpg'
+import person from '/src/assets/2nd_Page_images/Fabian_Coray_-104.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

@@ -1,4 +1,4 @@
-import logo from '../../assets/logo/amea-logo.png'
+import logo from '/src/assets/logo/amea-logo.svg'
 const Loading = () => {
     return (
         <>

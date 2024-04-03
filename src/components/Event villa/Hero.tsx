@@ -1,4 +1,4 @@
-import heroImage from '../../assets/3rd_Page_images/8103479-HDR.jpg'
+import heroImage from '/src/assets/3rd_Page_images/8103479-HDR.jpg'
 
 const Hero: React.FC = () => {
     return (

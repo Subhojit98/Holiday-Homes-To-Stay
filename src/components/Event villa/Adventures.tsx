@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import adventureImg from '../../assets/3rd_Page_images/8103487-HDR.jpg'
-import spa from '../../assets/3rd_Page_images/VMM-spa-A.jpg'
+import adventureImg from '/src/assets/3rd_Page_images/8103487-HDR.jpg'
+import spa from '/src/assets/3rd_Page_images/VMM-spa-A.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

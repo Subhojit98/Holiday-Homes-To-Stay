@@ -1,5 +1,5 @@
-import motiveImg_1 from '../assets/Home_Page_images/Home_page_image_8.jpg'
-import motiveImg_2 from '../assets/Home_Page_images/Home_page_image_9.jpg'
+import motiveImg_1 from '/src/assets/Home_Page_images/Home_page_image_8.jpg'
+import motiveImg_2 from '/src/assets/Home_Page_images/Home_page_image_9.jpg'
 
 export const MotiveData = [
     {id: 1,

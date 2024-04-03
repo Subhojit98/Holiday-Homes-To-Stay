@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import introImg_1 from '../../assets/4th_Page_images/San_Giorgio_Cliffs_171.jpg'
-import introImg_2 from '../../assets/4th_Page_images/79452002_1202094109984362_1863676249259868194_n.jpg'
+import introImg_1 from '/src/assets/4th_Page_images/San_Giorgio_Cliffs_171.jpg'
+import introImg_2 from '/src/assets/4th_Page_images/79452002_1202094109984362_1863676249259868194_n.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

@@ -1,4 +1,4 @@
-import foorterImg from '../../assets/Home_Page_images/Footer.jpg'
+import foorterImg from '/src/assets/Home_Page_images/Footer.jpg'
 import FooterUi from './FooterUi'
 
 const Footer = () => {

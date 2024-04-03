@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import assistent from '../../assets/3rd_Page_images/kinga_egyud-e1648051039206.jpg'
+import assistent from '/src/assets/3rd_Page_images/kinga_egyud-e1648051039206.jpg'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'

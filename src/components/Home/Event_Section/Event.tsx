@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import palletVillaImg from '../../../assets/Home_Page_images/pallet_villa.jpg'
+import palletVillaImg from '/src/assets/Home_Page_images/pallet_villa.jpg'
 import BusinessStudy from './BusinessStudy'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
