@@ -1,5 +1,5 @@
 import { backimageList, items } from '../../../data/Hamburger'
-import logo from '/src/assets/logo/amea_logo.svg'
+// import logo from '/src/assets/logo/amea_logo.svg'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
@@ -76,7 +76,7 @@ const Menu: React.FC<menuProp> = ({ showMenu, setShowMenu }) => {
 
                 </div>
                 <div className="w-full h-screen bg-WholePage bigTablet:flex bigTablet:flex-col bigTablet:justify-center bigTablet:items-center hidden">
-                    <img src={logo} alt="" className='w-2/6' />
+                    <img src={""} alt="" className='w-2/6' />
                 </div>
 
             </motion.div >
