@@ -1,9 +1,9 @@
-// import errorImg from '/src/assets/logo/server down.svg'
+import logo from '/src/assets/Home_page_images/notFound.svg'
 
 const ServerDownSvg = () => {
     return (
         <>
-            <img src={""} alt="Page not found" className="object-cover" />
+            <img src={logo} alt="Page not found" className="object-cover" />
         </>
     )
 }

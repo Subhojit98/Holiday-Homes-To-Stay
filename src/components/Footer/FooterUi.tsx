@@ -1,4 +1,3 @@
-// import LogoSvg from '/src/assets/logo/amea_logo_white.svg'
 import { useEffect } from 'react'
 const FooterUi = () => {
 
@@ -21,7 +20,6 @@ const FooterUi = () => {
                     <div className="flex flex-row-reverse">
                         <div>
                             <button className="text-teal-600 dark:text-teal-300" onClick={reloadPage}>
-                                <img src={""} alt="" className='h-4 bigTablet:h-6 hover:cursor-pointer' />
 
                             </button>
 
