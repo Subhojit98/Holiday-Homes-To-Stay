@@ -1,5 +1,5 @@
 import { backimageList, items } from '../../../data/Hamburger'
-import logo from '/src/assets/Home_page_images/ameaLogo.svg'
+import logo from '/src/assets/Home_page_images/ameaLogo.png'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 

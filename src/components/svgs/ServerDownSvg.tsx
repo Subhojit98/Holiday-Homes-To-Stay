@@ -1,4 +1,4 @@
-import logo from '/src/assets/Home_page_images/notFound.svg'
+import logo from '/src/assets/Home_page_images/notFound.png'
 
 const ServerDownSvg = () => {
     return (
