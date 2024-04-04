@@ -1,4 +1,4 @@
-import logo from '/src/assets/logo/amea-logo.svg'
+import logo from '/src/assets/logo/amea_logo.svg'
 
 const LogoSvg = () => {
     return (
