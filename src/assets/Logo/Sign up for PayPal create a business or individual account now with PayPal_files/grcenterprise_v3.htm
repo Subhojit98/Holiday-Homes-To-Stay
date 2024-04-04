@@ -1,0 +1,209 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.grecaptcha-badge{
+			bottom: 3px !important;
+		}
+	</style>
+	<script type="text/javascript" async="" src="grcenterprise_v3_data/recaptcha__en_gb.js" crossorigin="anonymous" integrity="sha384-EN2tdBwkHSq5HRV35dE4xF1Sfqem7S1QxcUvkeIr20eWdjv4t7Ac+xqXOZZ2wMfF"></script><script>
+
+		var pp_loc_map = {"ar_EG":"ar","da_DK":"da","de_DE":"de","de_DE_AT":"de-AT","de_DE_CH":"de-CH","en_AU":"en",
+			"en_GB":"en-GB","en_US":"en","es_ES":"es","es_XC":"es-419","fr_CA":"fr-CA","fr_FR":"fr",
+			"fr_XC":"fr","he_IL":"iw","id_ID":"id","it_IT":"it","ja_JP":"ja","ko_KR":"ko","nl_NL":"nl",
+			"no_NO":"no","pl_PL":"pl","pt_BR":"pt-BR","pt_PT":"pt-PT","ru_RU":"ru","sv_SE":"sv","th_TH":"th",
+			"tr_TR":"tr","zh_CN":"zh-CN","zh_HK":"zh-HK","zh_TW":"zh-TW","zh_XC":"zh-CN","ar":"ar","da":"da",
+			"de":"de","en":"en","es":"es","fr":"fr","id":"id","ko":"ko","pt":"pt","ru":"ru","zh":"zh-CN"};
+
+
+		function getGoogLocale(l,c){
+			try{
+				var loc_lower = l.toLowerCase();
+				if(c !== undefined && (c.toLowerCase() === 'at' || c.toLowerCase() === 'ch') && (l === 'de_DE')) {
+					l = l + '_' + c.toUpperCase();
+				}
+				if(loc_lower.indexOf('rowlite') !== -1 || loc_lower.indexOf('groupa') !== -1 || loc_lower.indexOf('groupb') !== -1 || loc_lower.indexOf('groupc') !== -1) {
+					l = loc_lower.substring(0,2);
+				}
+			}catch (e) {
+				//do nothing
+			}
+			return pp_loc_map[l] || 'en';
+		}
+
+		function getTargetOrigin(){
+			var allowedDomains = ['paypal.com','paypalinc.com','venmo.com','paypalobjects.com'];
+			var targetOrigin = '/';
+			try{
+				if(!window.URL){
+					return targetOrigin;
+				}
+
+				var originUrl = new window.URL(document.referrer);
+				if(!originUrl || !originUrl.hostname || typeof originUrl.hostname !== "string"){
+					return targetOrigin;
+				}
+
+				var originUrlParts = originUrl.hostname.split('.');
+				if(!originUrlParts){
+					return targetOrigin;
+				}
+
+				if(Array && Array.isArray && !Array.isArray(originUrlParts)){
+					return targetOrigin;
+				}
+
+				if(!originUrlParts.length || originUrlParts.length < 2){
+					return targetOrigin;
+				}
+
+				originUrlParts = originUrlParts.slice(-2);
+				if(!originUrlParts || !originUrlParts.length || originUrlParts.length < 2){
+					return targetOrigin;
+				}
+
+				var referrerDomain = originUrlParts.join('.');
+				if(!referrerDomain){
+					return targetOrigin;
+				}
+
+				if(allowedDomains.indexOf(referrerDomain) >= 0){
+					targetOrigin = originUrl.origin;
+				}
+
+			}
+			catch(e){
+				console.error(e);
+			}
+			return targetOrigin;
+
+		}
+
+
+		function renderGRCV3Enterprise(data) {
+
+			var renderStartTime = Date.now();
+
+			var source = document.createElement("script");
+			source.src = 'https://www.recaptcha.net/recaptcha/enterprise.js?render=' + data.skey + '&hl=' + getGoogLocale(data.locale, data.country);
+			source.async = true;
+			source.onload = function() {
+				grecaptcha.enterprise.ready(function() {
+					try {
+						grecaptcha.enterprise.execute(data.skey, {action: data.action})
+								.then(function(token) {
+									window.parent.postMessage(JSON.stringify({
+										token: token,
+										source: 'adframe',
+										renderStartTime:renderStartTime,
+										renderEndTime:Date.now(),
+									}), getTargetOrigin());
+								});
+					} catch (e) {
+						window.parent.postMessage(JSON.stringify({
+							error: 'grc_enterprise_error',
+							source: 'adframe',
+						}), getTargetOrigin());
+					}
+				});
+			};
+			document.body.appendChild(source);
+		}
+		function initGRCV3Enterprise() {
+
+			var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent",
+					eventer = window[eventMethod],
+					messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message",
+					mouseOverEvent = eventMethod == "attachEvent" ? "onmouseover" : "mouseover",
+					mouseLeaveEvent = eventMethod == "attachEvent" ? "onmouseleave" : "mouseleave",
+					clickEvent = eventMethod == "attachEvent" ? "onclick" : "click";
+			eventer(messageEvent,function(event) {
+				var data;
+				try {
+
+					if(event.data === 'recaptcha-setup'){
+						return;
+					}
+					// Domain check
+					if (event && !isPayPalDomain(event.origin)) {
+						return;
+					}
+					data = event && JSON.parse(event.data && event.data.toString());
+				} catch(e) {
+					window.parent.postMessage(JSON.stringify({
+						error: 'error_parsing_data',
+						source: 'adframe',
+						action:'logData',
+						page:'RECAPTCHA_V3_ENT',
+					}), getTargetOrigin());
+					return;
+				}
+
+				// Invalid request source or request data
+				if (!data || data.source !== 'ADS') {
+					return;
+				}
+
+				// Handle GRC Enterprise intent
+				data.skey = encodeURIComponent(data.skey || '');
+				if (data.skey) {
+					renderGRCV3Enterprise(data);
+				}
+			},false);
+
+			function openwidget(){
+				window.parent.postMessage(JSON.stringify({
+					reason: 'size',
+					state: 'OPEN',
+					source: 'adframe'
+					}), getTargetOrigin());
+			}
+			document[eventMethod](mouseOverEvent, openwidget);
+			document[eventMethod](clickEvent, openwidget);
+			document[eventMethod](mouseLeaveEvent, function(){
+				window.parent.postMessage(JSON.stringify({
+					reason: 'size',
+					state: 'close',
+					source: 'adframe'
+					}), getTargetOrigin());
+			});
+		}
+		function isPayPalDomain(domain) {
+			var paypalDomainRegex = /\.(paypal|venmo)\.com(:[\d]{1,5})?$/ig;
+			return paypalDomainRegex.test(domain);
+		}
+		
+		initGRCV3Enterprise();
+	</script>
+</head>
+<body>
+
+
+<script src="grcenterprise_v3_data/enterprise.js" async=""></script><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-5ulb69s1rx7b" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="grcenterprise_v3_data/anchor.htm"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">03AFcWeA6MpmhqAKyLelkFi6SUR77JIdTMuSejvKrGbr10lUC_71VEinIWYamac0Nxd5t3Adcx29VCuX4nXp5_uIoM5cW8AXmBuhP5QDmk-
+QU1k0zWEZlvjuYx_ME6sFfdwSKjbeypjGdBNgxd18ams6vMZUwN10DDTd3MbC2SIVP08_gcGNTj5YnGj3TGxWR07ZCfKed6Cv-
+OoYR61SSJwckq_vyKitYD-qpmbs43eEteYhB7zL-dYUDzm4N4DJ-MgABPW-
+YuybKpsSPavJ9FqpvBWvVtQOwpYDrgX_UcBZrBxFzSMCnJs658N1YNgpppMwjNW6106I91tS4QymCbeZ-
+E5Yc8iximrwjkfHJA7mIerX3Gobu6qhIWsBd0TYY61m3UOhxbyjv_01HDZJedZZlV_7UrRUpTGciMUyBGBIkWWjm2_AWDCQuL1FrI70VF2LuTYS2SkZ1Ml0dQUg2h4jcQXl6J1VnvO0S5bDomMPZsHBepLT6lzdUzYts5dMWl8208jXENB22dNpHdbmlbgfAFsUPV0tuqv2kY1u8L51TrquTyCOOjS8yweUq0hjwZho_KBzRxyFf3M88fCK1aEWf_xz-8XQMsJ5PVb4m6QE92Ns0X8DuuAyEaSIEGkNYQleRQ1m1-0dFzFea4aIoUutOF0WsiLl_PtZX73uGBFslB9c6bM0Dv8QZ1P_-
+RI31c0NUbXUGNcLJrcGwIbhYEsylmgGlJdlE69i1cyXmfj3tYjoYRtjzvbLdB0YSeA4ATMc7NaDF8Hm1InRDZ_4MqxuhOFs59n6t8pojox1yGvxYvO5ngwpcnIiKjzxasgqVNdimeGMz6RolMokt7e8AO1-
+OmJE6o2y3Dli_hg3bJXkqtv77jcSGOFku4ysryn1RJ53mH_u-
+VJR5s2qN2_R9Fbx6Pl63WR6559FSRtDpR-
+MnqFVFACVI7VTjx3NIEwk2RiwZFoBTlnKYFsJnJI0obfnuRi0-
+Y9bpbQxOJexIgoe18Rq1wlBv0CgqerCxkPy4tclw6rIaZ59rEiyF0uq6-
+LD82PGeuhRfd2QvyqBd_lK8SJXD6CICyUyh1_z0DcpTpg6FHAiE6W5M_avy1zLc5gowT1NoQjnLTlS4kGdVq_EWDq0JfxGGwrDiilYB_SXH8-4ug7yir_BZ5ip16xIuoKBgjYRF-
+YlXXHsFHAD3hqvCbKO45pHUquW96C_yK4IsCTWdrhB5qM5DnI6sBbRYxAo5Uq1CZw_Z85rWmNedhrxWYmde0RsEX58dfc7aDxHyAifA5qOOEwJ6GaWquQJCd6S1COgyneYqnGB5_ghp9hJqKyNgiez6xpZmCjLpyDc4SkdvqDUPZzVzflwJMrgI7lW-
+z4c5GUlyEEaZRK5l3AqfIPZeRsyt5Aq-67asdzoitglncu3DYN-
+DIWl1R6srMB0B1cdZJxj05V-6loSLahACPqBEsNNrpKyhXrbzWXFC_XAj7xtWZgYSUCMhzqgfWxo4fEj0uKficRq1Z9QGoBE37jrVrM6j7Sx-
+es-
+eEMEfc8I10IjJYVNDayyUpWCViAjfyFh1Y_iDPiWdo2nE4ejXKnZyF4oSlH9KATPw9OiMCR3WfvvjyrACz1pwOuIWQiUuMd609Evyk-
+gLfvL6cgrIdrKOFzUXB28ez_7GbljFxgIsXs3h5_udYGXlLkYss1fcX22yR1e9X1NJBZVZWEWbu4It9okMxp1TXboj_VoTnm8CQ7g5QU1UmCWueJAxdlLc0IhS0PhEz72oTS4LOTejenYOt-
+_GWWlY6Gii60oiRiybrP049LYrJpN5AFFKO6xSPmWqK0JT5pielJyjlWfdUtqQKVU6lDla136N8exoldDjd_uayq-
+a3c5S07ca6pTrxo0TlZESmn4rTSq4VkRuqTyNQ-
+vA7bFdK1JM5BDtez5qLWSn0hFU-7wr3DCcItYK1rQSXf7xzJYbiZBN_T4cN9sz7jShVaEr7jgWPJj8wkKBl8vSQICxwK0sWhFgl116ebd3_UuUfy0dWGGn3s-
+YjcZKv69YDbW7Wj1T3FZvA6L7TIVC-
+m72geATqbNvgSsYbuyNfADzphIqHUry3MQimr8hPamwPEjtzzUJpMbJcD7t63ExbJyUwiAVGsHIMzVGwSSjOb41k0HWqIra_9zRF7Ot92TI0eHYbdRZ_sYmLD4nfiySfKYqBRx-
+K9X2nHolG5Fbjts5JxmjWBq_1SBaKONnDvqNeCsTkMvwf08Vm2PcAaEDm7dUE6k3lpKO-
+c_OGNBNoTggEeNjmCRLx8JUSp6OmLHAbFNhYJJuPFDQfDuge-
+yJl3vZvMwEppDixY7KVKVG7AzokSZJ3XtvpQjvkqsZbHAjvdVaLPN1eapzH120Ti4WpPp_LCgo2UfJPBmxXEvrVwhaCSCaf1mJSN5R2aqc2ndpn3xEBS1L4OsWpbXLJrImdEz0h5Fqn6sjFe7-
+oOxeTMfScyIL9E5r9XnjP3M2X7KN3EEsbWjP1BfaLJ5X90BI42nwJavbmruDF9fzK-
+UW9bgqio2TNVEdXl6mZDqC87qLEpUJ8i4uJCQtNXCV6A6DncSQOI8gqWTvAjyUMabEyCGvR23eybY0qWb-
+F42SlJky_b34</textarea></div><iframe style="display: none;"></iframe></div></body></html>
