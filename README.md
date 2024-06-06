@@ -35,11 +35,11 @@ Check out the [demo video](https://github.com/Subhojit98/Holiday_Homes_To_Stay/a
    
 2. Navigate to the project directory:
    ```bash
-cd Holiday_Homes_To_Stay
+   cd Holiday_Homes_To_Stay
 
 3. 3. Install dependencies:
    ```bash
-npm install
+    npm install
 
 
 ## Usage
@@ -47,7 +47,7 @@ npm install
 1. Start the application:
 
    ```bash
- npm start
+   npm start
 
 2. Open your browser and visit http://localhost:3000 to explore holiday homes and plan your stay.
 
@@ -67,4 +67,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests to e
 
 ## License
 
-This project is licensed under the MIT License.
+    This project is licensed under the MIT License.
