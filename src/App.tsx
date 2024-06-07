@@ -1,7 +1,7 @@
 import './App.css'
 import Loading from './pages/loading/Loading'
 import Navbar from './components/Navbar/Navbar';
-import React, { useState, Suspense, useEffect } from 'react'
+import React, { Suspense } from 'react'
 import Home from './pages/Home Page/Home'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -15,33 +15,8 @@ const PageNotFound = React.lazy(() => import('./pages/Error/PageNotFound'))
 
 function App() {
 
-  const [isloading, setIsLoading] = useState(true)
-
-
-  useEffect(() => {
-    // window.onload = () => {
-    //   setIsLoading(false)
-    // }
-
-    window.addEventListener('load', () => {
-      setIsLoading(false)
-    })
-
-    return () => {
-      window.removeEventListener('load', () => {
-        setIsLoading(false)
-      })
-    }
-
-
-  }, [])
-
-
   return (
     <>
-      {/* Page Loader .. -> */}
-
-      {isloading && <Loading />}
 
       <Router>
         <Navbar />
