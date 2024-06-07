@@ -29,7 +29,7 @@ function App() {
     <>
       {/* Page Loader .. -> */}
 
-      {isloading && <Loading />}
+      {/* {isloading && <Loading />} */}
 
       <Router>
         <Navbar />
