@@ -19,9 +19,21 @@ function App() {
 
 
   useEffect(() => {
-    window.onload = () => {
+    // window.onload = () => {
+    //   setIsLoading(false)
+    // }
+
+    window.addEventListener('load', () => {
       setIsLoading(false)
+    })
+
+    return () => {
+      window.removeEventListener('load', () => {
+        setIsLoading(false)
+      })
     }
+
+
   }, [])
 
 
