@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import heroVideo from '/src/assets/Home_Page_images/home_Page_video.mp4'
 import heroPoster from '/src/assets/Home_Page_images/poster_video.jpg'
 const Hero: React.FC = () => {
@@ -24,15 +25,17 @@ const Hero: React.FC = () => {
                         <div className='flex justify-center items-center mt-6'>
                             <button className="absolute">
 
-                                <a href="became-investor" className="relative inline-flex items-center justify-center w-32 p-1 px-32 overflow-hidden font-medium transition duration-300 ease-out border-[1px] border-white rounded-full shadow-md group">
-                                    <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
-                                        <svg className="w-6 h-6" fill="#131314" stroke="#131314" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                <Link to={"/leisure-investor"}>
+                                    <a href="" className="relative inline-flex items-center justify-center w-32 p-1 px-32 overflow-hidden font-medium transition duration-300 ease-out border-[1px] border-white rounded-full shadow-md group">
+                                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
+                                            <svg className="w-6 h-6" fill="#131314" stroke="#131314" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
 
-                                        <p className="ml-4 text-[#131314] font-Quicksand">Raedy To Go</p>
-                                    </span>
-                                    <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease font-Quicksand">Watch Video</span>
-                                    <span className="relative invisible">Button Text</span>
-                                </a>
+                                            <p className="ml-4 text-[#131314] font-Quicksand">Raedy To Go</p>
+                                        </span>
+                                        <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease font-Quicksand">Watch Video</span>
+                                        <span className="relative invisible">Button Text</span>
+                                    </a>
+                                </Link>
                             </button>
                         </div>
 
