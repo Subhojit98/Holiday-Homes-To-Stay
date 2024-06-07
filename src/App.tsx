@@ -1,7 +1,7 @@
 import './App.css'
 import Loading from './pages/loading/Loading'
 import Navbar from './components/Navbar/Navbar';
-import React, { useState, Suspense,useEffect } from 'react'
+import React, { useState, Suspense, useEffect } from 'react'
 import Home from './pages/Home Page/Home'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -17,15 +17,19 @@ function App() {
 
   const [isloading, setIsLoading] = useState(true)
 
- 
-useEffect(()=>{
-   window.onload = () => {
+
+  useEffect(() => {
+    window.onload = () => {
       setIsLoading(!isloading)
-   }
-},[])
+    }
+  }, [])
+
 
   return (
     <>
+      {/* Page Loader .. -> */}
+
+      {isloading && <Loading />}
 
       <Router>
         <Navbar />
@@ -46,9 +50,7 @@ useEffect(()=>{
         </Suspense>
       </Router>
 
-      {/* Page Loader .. -> */}
 
-      {isloading && <Loading />}
 
     </>
   )
