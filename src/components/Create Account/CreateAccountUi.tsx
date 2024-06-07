@@ -33,23 +33,23 @@ const CreateAccountUi: React.FC = () => {
                             <div className="hero-content">
                                 <div className="card flex-shrink-0 w-full">
                                     <div className="card-body tablet:flex">
-                                        <div className="tablet:flex tablet:gap-4">
+                                        <div className="tablet:flex tablet:gap-4 justify-center">
                                             <div className="form-control">
                                                 <label className="label mb-1">
                                                     <span className="label-text font-Raleway text-lg after:content-['*']">Username or email address</span>
                                                 </label>
-                                                <input type="text" className="input rounded-none px-8 py-5 bigTablet:py-7 font-chakra text-lg tablet:w-[95%]" />
+                                                <input type="text" placeholder='Enter username or email' className="input rounded-none px-8 py-5 bigTablet:py-7 font-chakra text-lg tablet:w-[95%]" />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label mb-1">
                                                     <span className="label-text font-Raleway text-lg after:content-['*']">Password </span>
                                                 </label>
-                                                <input type="text" className="input rounded-none px-8 py-5 bigTablet:py-7 text-lg font-Manrope tablet:w-[95%]" />
+                                                <input type="text" placeholder='password' className="input rounded-none px-8 py-5 bigTablet:py-7 text-lg font-Manrope tablet:w-[95%]" />
 
                                             </div>
                                         </div>
                                         <div className="form-control mt-5 ">
-                                            <button className="btn btn-secondary w-full tablet:w-[85%] desktop:w-[97%]">Login</button>
+                                            <button className="btn btn-secondary w-full desktop:w-[70%] m-auto">Login</button>
                                         </div>
                                         <div className="flex items-center mt-3">
                                             <input id="" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 cursor-pointer" />

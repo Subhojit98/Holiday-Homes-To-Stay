@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Menu from "../Home/Hamburger/Menu";
 import { useState, useEffect } from 'react'
 import NavBarLogo from "../svgs/NavBarLogo";
@@ -40,9 +40,6 @@ const Navbar = () => {
         window.scrollTo(0, 0)
     }, [])
 
-    const reloadPage = () => {
-        window.location.reload()
-    }
 
     // Hideing the navbar when its error page ..
     const location = useLocation()
@@ -73,9 +70,9 @@ const Navbar = () => {
                         </div>
 
                         {/* Logo.. -> */}
-                        <button className="h-full cursor-pointer" onClick={reloadPage}>
+                        <Link to="/">
                             <NavBarLogo />
-                        </button>
+                        </Link>
                     </div>
 
                 </nav>
