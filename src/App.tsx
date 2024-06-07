@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     window.onload = () => {
-      setIsLoading(!isloading)
+      setIsLoading(false)
     }
   }, [])
 
